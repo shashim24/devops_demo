@@ -23,23 +23,12 @@ pipeline {
 		cd java_web_code/
 		cd ../docker/
 		docker build -t devops_pipeline_demo .
-		CONTAINER=devops_pipeline_demo
- 
-		RUNNING=$(docker inspect --format="{{ .State.Running }}" $CONTAINER 2> /dev/null)
-
-		if [ $? -eq 1 ]; then
-		  echo "'$CONTAINER' does not exist."
-		else
-		  docker rm -f $CONTAINER
-		fi
-
-		echo ""
-		echo "..... Deployment Phase Started :: Building Docker Container :: ......"
+		echo '..... Deployment Phase Started :: Building Docker Container :: ......'
 		docker run -d -p 8180:8080 --name devops_pipeline_demo devops_pipeline_demo
 
-		echo "--------------------------------------------------------"
-		echo "View App deployed here: http://server-ip:8180/sample.txt"
-		echo "--------------------------------------------------------"
+		echo '-------------------------------------------------------'
+		echo 'View App deployed here: http://server-ip:8180/sample.txt'
+		echo '--------------------------------------------------------'
      }
    }
   }
