@@ -21,7 +21,6 @@ pipeline {
      steps {
 		echo 'Deploying...'
 		cd java_web_code/
-		/bin/cp target/wildfly-spring-boot-sample-1.0.0.war ../docker/
 		cd ../docker/
 		docker build -t devops_pipeline_demo .
 		CONTAINER=devops_pipeline_demo
