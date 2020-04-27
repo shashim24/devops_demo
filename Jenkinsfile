@@ -20,16 +20,7 @@ pipeline {
    stage('Deploy') {
      steps {
 		echo 'Deploying...'
-		cd java_web_code/
-		/bin/cp target/wildfly-spring-boot-sample-1.0.0.war ../docker/
-		cd ../docker/
-		docker build -t devops_pipeline_demo .
-		echo '..... Deployment Phase Started :: Building Docker Container :: ......'
-		docker run -d -p 8180:8080 --name devops_pipeline_demo devops_pipeline_demo
-
-		echo '-------------------------------------------------------'
-		echo 'View App deployed here: http://server-ip:8180/sample.txt'
-		echo '--------------------------------------------------------'
+		
      }
    }
   }
