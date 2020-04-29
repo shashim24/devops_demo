@@ -1,5 +1,4 @@
-FROM servergurus/ubuntu-jdk8
-MAINTAINER Prasanjit Singh <nixgurus@gmail.com>
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
 # setup WildFly 
 COPY wildfly-8.2.0.Final /opt/wildfly
@@ -15,4 +14,4 @@ EXPOSE 8080 9990 9090
 
 # Set the default command to run on boot
 # This will boot WildFly in the standalone mode and bind to all interface
-CMD ["/opt/wildfly/bin/standalone.sh", "-c", "standalone-full.xml", "-b", "0.0.0.0"]
+CMD ["/opt/wildfly/bin/standalone.bat", "-c", "standalone-full.xml", "-b", "0.0.0.0"]
