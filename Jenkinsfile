@@ -16,7 +16,7 @@ pipeline {
 			steps {
 				echo 'Testing...'
 				bat """
-					cd ..\\integration-testing\\
+					cd integration-testing
 					mvn clean verify -P integration-test
 				"""	
 			}
@@ -25,7 +25,7 @@ pipeline {
 			steps {
 				echo 'Deploying...'
 				bat """
-					cd java_web_code\\
+					cd java_web_code
 					\\bin\\cp target\\wildfly-spring-boot-sample-1.0.0.war ..\\docker\\
 					cd ..\\docker\\
 					docker build -t devops_pipeline_demo .
